@@ -34,6 +34,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'webserver',
+    'task-manager-8d90.onrender.com',
 ]
 
 
