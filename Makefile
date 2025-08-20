@@ -47,3 +47,10 @@ check:
 fix:
 	uv run ruff check --fix .
 
+.PHONY: translate-makemessages
+translate-makemessages:
+	@$(MANAGE) makemessages
+
+.PHONY: translate-compile
+translate-compile:
+	@$(MANAGE) compilemessages
