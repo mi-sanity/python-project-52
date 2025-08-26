@@ -2,13 +2,13 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy as reverse
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import ListView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 from task_manager.users.forms import UserCreateForm
 from task_manager.users.mixins import (
-    ProtectDeleteMixin,
     CheckChangePermissionMixin,
     CustomLoginRequiredMixin,
+    ProtectDeleteMixin,
 )
 from task_manager.users.models import User
 
