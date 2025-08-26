@@ -49,7 +49,7 @@ fix:
 
 .PHONY: translate-makemessages
 translate-makemessages:
-	@$(MANAGE) makemessages
+	@$(MANAGE) makemessages -l ru
 
 .PHONY: translate-compile
 translate-compile:
