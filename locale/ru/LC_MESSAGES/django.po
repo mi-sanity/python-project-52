@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-26 13:41+0000\n"
+"POT-Creation-Date: 2025-08-29 11:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,86 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: task_manager/statuses/forms.py:15
+msgid "name"
+msgstr "Имя"
+
+#: task_manager/statuses/forms.py:19 task_manager/statuses/views.py:18
+msgid "Name"
+msgstr "Имя"
+
+#: task_manager/statuses/views.py:16 task_manager/templates/base.html:32
+msgid "Statuses"
+msgstr "Статусы"
+
+#: task_manager/statuses/views.py:17 task_manager/users/views.py:22
+msgid "ID"
+msgstr "ID"
+
+#: task_manager/statuses/views.py:19 task_manager/users/views.py:26
+msgid "Edit"
+msgstr "Изменить"
+
+#: task_manager/statuses/views.py:20 task_manager/users/views.py:27
+msgid "Delete"
+msgstr "Удалить"
+
+#: task_manager/statuses/views.py:21 task_manager/users/views.py:25
+msgid "Created at"
+msgstr "Дата создания"
+
+#: task_manager/statuses/views.py:22 task_manager/statuses/views.py:33
+msgid "Create status"
+msgstr "Создать статус"
+
+#: task_manager/statuses/views.py:24 task_manager/statuses/views.py:37
+#: task_manager/statuses/views.py:51 task_manager/statuses/views.py:67
+#: task_manager/users/mixins.py:11
+msgid "Please login"
+msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
+
+#: task_manager/statuses/views.py:34
+msgid "Create"
+msgstr "Создать"
+
+#: task_manager/statuses/views.py:36
+msgid "Status created successfully"
+msgstr "Статус успешно создан"
+
+#: task_manager/statuses/views.py:47
+msgid "Update status"
+msgstr "Изменить статус"
+
+#: task_manager/statuses/views.py:48 task_manager/users/views.py:54
+msgid "Update"
+msgstr "Изменить"
+
+#: task_manager/statuses/views.py:50
+msgid "Status successfully changed"
+msgstr "Статус успешно изменен"
+
+#: task_manager/statuses/views.py:62
+msgid "Remove status"
+msgstr "Удаление статуса"
+
+#: task_manager/statuses/views.py:63 task_manager/users/views.py:73
+msgid "Are you sure delete"
+msgstr "Вы уверены, что хотите удалить"
+
+#: task_manager/statuses/views.py:64
+#: task_manager/templates/users/delete.html:10 task_manager/users/views.py:72
+msgid "Yes, delete"
+msgstr "Да, удалить"
+
+#: task_manager/statuses/views.py:66
+msgid "Status was deleted successfully"
+msgstr "Статус успешно удален"
+
+#: task_manager/statuses/views.py:68
+msgid "Cannot delete busy status"
+msgstr "Невозможно удалить статус, потому что он используется"
+
 #: task_manager/templates/base.html:19 task_manager/views.py:11
 msgid "Task manager"
 msgstr "Менеджер задач"
@@ -26,10 +106,6 @@ msgstr "Менеджер задач"
 #: task_manager/templates/base.html:26 task_manager/users/views.py:21
 msgid "Users"
 msgstr "Пользователи"
-
-#: task_manager/templates/base.html:32
-msgid "Statuses"
-msgstr "Статусы"
 
 #: task_manager/templates/base.html:35
 msgid "Labels"
@@ -67,14 +143,6 @@ msgstr "Узнать больше"
 msgid "Are you sure you want to delete"
 msgstr "Вы уверены, что хотите удалить"
 
-#: task_manager/templates/users/delete.html:10 task_manager/users/views.py:72
-msgid "Yes, delete"
-msgstr "Да, удалить"
-
-#: task_manager/users/mixins.py:11
-msgid "Please login"
-msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
-
 #: task_manager/users/mixins.py:23
 msgid "You cannot delete executor of the task"
 msgstr "Вы не можете удалить исполнителя задачи"
@@ -83,10 +151,6 @@ msgstr "Вы не можете удалить исполнителя задач�
 msgid "You have no permissions to change another user."
 msgstr "У вас нет прав для изменения другого пользователя."
 
-#: task_manager/users/views.py:22
-msgid "ID"
-msgstr "ID"
-
 #: task_manager/users/views.py:23
 msgid "Username"
 msgstr "Имя пользователя"
@@ -94,18 +158,6 @@ msgstr "Имя пользователя"
 #: task_manager/users/views.py:24
 msgid "Full name"
 msgstr "Полное имя"
-
-#: task_manager/users/views.py:25
-msgid "Created at"
-msgstr "Дата создания"
-
-#: task_manager/users/views.py:26
-msgid "Edit"
-msgstr "Изменить"
-
-#: task_manager/users/views.py:27
-msgid "Delete"
-msgstr "Удалить"
 
 #: task_manager/users/views.py:37
 msgid "Register"
@@ -119,10 +171,6 @@ msgstr "Пользователь успешно зарегистрирован"
 msgid "Edit user"
 msgstr "Изменение пользователя"
 
-#: task_manager/users/views.py:54
-msgid "Update"
-msgstr "Изменить"
-
 #: task_manager/users/views.py:56
 msgid "User update successfully"
 msgstr "Пользователь успешно изменен"
@@ -130,10 +178,6 @@ msgstr "Пользователь успешно изменен"
 #: task_manager/users/views.py:71
 msgid "Remove user"
 msgstr "Удалить пользователя"
-
-#: task_manager/users/views.py:73
-msgid "Are you sure delete"
-msgstr "Вы уверены, что хотите удалить"
 
 #: task_manager/users/views.py:75
 msgid "User was successfully deleted"
@@ -146,6 +190,10 @@ msgstr "Войти"
 #: task_manager/views.py:24
 msgid "Login successfully"
 msgstr "Вы залогинены"
+
+#: task_manager/views.py:28
+msgid "Login Error"
+msgstr ""
 
 #: task_manager/views.py:36
 msgid "Logged out successfully"

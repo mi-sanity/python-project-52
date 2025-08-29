@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% load i18n %}
+
+{% block content %}
+<h1 class="my-4">{{ title }}</h1>
+<a class="btn btn-primary mb-3" role="button" href="{% url 'status_create' %}">{{ create_status }}</a>
+<table class = "table table-striped">
+    <thead>
+    <tr>
+        <th>{{ ID }}</th>
+        <th>{{ name }}</th>
+        <th>{{ created_at }}</th>
+        <th></th>
+    </tr>
+</thead>
+<tbody>
+    {% for status in statuses %}
+        <tr>
+            <td> {{ status.id }}</td>
+            <td> {{ status.name }}</td>
+            <td> {{ status.updated_at }}</td>
+            <td>
+                <a href = "{% url 'status_update' status.id %}">{{ edit }}</a><br>
+                <a href = "{% url 'status_delete' status.id %}">{{ delete }}</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
