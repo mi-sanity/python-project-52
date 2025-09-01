@@ -1,0 +1,15 @@
+{% load django_bootstrap5 %}
+{% load i18n %}
+
+<div class="card mb-3 filter" bis_skin_checked="1">
+  <div class="card-body bg-light" bis_skin_checked="1">
+    <form class="form-inline center" method="get">
+      {% for field in filter.form %}
+      <div class="form-group">
+        {% bootstrap_field field %}
+      </div>
+      {% endfor %}
+      <input class="btn btn-primary" type="submit" value="{% translate 'Show' %}">
+    </form>
+  </div>
+</div>
