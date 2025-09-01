@@ -35,7 +35,7 @@
 				    <a class="nav-link" href="">{% translate "Labels" %}</a>
 			    </li>
 			    <li class = "nav-item ">
-				    <a class="nav-item nav-link" aria-current="page" href="">{% translate "Tasks" %}</a>
+				    <a class="nav-item nav-link" aria-current="page" href="{% url 'tasks' %}">{% translate "Tasks" %}</a>
 			    </li>
 			    <li class="nav-item">
             <form class="my-0" method="POST" action="{% url 'logout' %}">
