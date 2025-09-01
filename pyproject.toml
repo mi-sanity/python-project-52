@@ -12,6 +12,7 @@ dependencies = [
     "django-bootstrap5>=25.2",
     "psycopg2-binary>=2.9.10",
     "whitenoise>=6.9.0",
+    "django-filter>=25.1",
 ]
 
 [dependency-groups]
