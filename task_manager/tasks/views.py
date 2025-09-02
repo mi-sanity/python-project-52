@@ -93,6 +93,7 @@ class TaskDetail(LoginRequiredMixin, DetailView):
         "executor": _("Executor"),
         "status": _("Status"),
         "created": _("Created"),
+        "labels": _("Labels"),
         "edit": _("Edit"),
         "delete": _("Delete"),
     }
