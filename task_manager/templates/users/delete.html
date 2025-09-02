@@ -3,10 +3,10 @@
 {% load i18n %}
 
 {% block content %}
-    <h1>{{ title }}</h1>
-    <p>{% translate 'Are you sure you want to delete' %} {{ object.username }} ?</p>
-    <form method="post">
-        {% csrf_token %}
-        <input class="btn btn-danger" type="submit" value="{% translate 'Yes, delete' %}">
-    </form>
+<h1 class="my-4">{{ title }}</h1>
+<form method="post">
+  {% csrf_token %}
+  <p>{{confirm}} {{ object.username }} ?</p>
+  {% bootstrap_button submit button_type="submit" button_class="btn btn-danger" %}
+</form>
 {% endblock %}
