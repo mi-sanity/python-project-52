@@ -2,6 +2,7 @@ from django import forms
 from django.utils.translation import gettext_lazy as translate
 from django_filters import BooleanFilter, FilterSet, ModelChoiceFilter
 
+from task_manager.labels.models import Label
 from task_manager.statuses.models import Status
 from task_manager.tasks.models import Task
 from task_manager.users.models import User
@@ -13,6 +14,9 @@ class TaskFilter(FilterSet):
     )
     executor = ModelChoiceFilter(
         label=translate("Executor"), queryset=User.objects.all()
+    )
+    labels = ModelChoiceFilter(
+        label=translate("Label"), queryset=Label.objects.all()
     )
     my_tasks = BooleanFilter(
         label=translate("My tasks"),
@@ -26,4 +30,4 @@ class TaskFilter(FilterSet):
 
     class Meta:
         model = Task
-        fields = ("status", "executor")
+        fields = ("status", "executor", "labels")
