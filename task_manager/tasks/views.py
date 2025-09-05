@@ -78,7 +78,7 @@ class TaskDeleteView(
     extra_context = {
         "title": _("Remove task"),
         "submit": _("Yes, delete"),
-        "message": _("Are you sure delete task "),
+        "confirm": _("Are you sure delete"),
     }
     permission_denied_message = _("Please login")
     success_message = _("Task was successfully deleted")

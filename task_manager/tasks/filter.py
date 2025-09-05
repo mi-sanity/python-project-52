@@ -1,5 +1,5 @@
 from django import forms
-from django.utils.translation import gettext_lazy as translate
+from django.utils.translation import gettext_lazy
 from django_filters import BooleanFilter, FilterSet, ModelChoiceFilter
 
 from task_manager.labels.models import Label
@@ -10,16 +10,16 @@ from task_manager.users.models import User
 
 class TaskFilter(FilterSet):
     status = ModelChoiceFilter(
-        label=translate("Status"), queryset=Status.objects.all()
+        label=gettext_lazy("Status"), queryset=Status.objects.all()
     )
     executor = ModelChoiceFilter(
-        label=translate("Executor"), queryset=User.objects.all()
+        label=gettext_lazy("Executor"), queryset=User.objects.all()
     )
     labels = ModelChoiceFilter(
-        label=translate("Label"), queryset=Label.objects.all()
+        label=gettext_lazy("Label"), queryset=Label.objects.all()
     )
     my_tasks = BooleanFilter(
-        label=translate("My tasks"),
+        label=gettext_lazy("My tasks"),
         widget=forms.CheckboxInput,
         method="get_tasks",
     )
