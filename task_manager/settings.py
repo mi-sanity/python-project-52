@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 import dj_database_url
 import os
-
+import rollbar
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -68,6 +68,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    "rollbar.contrib.django.middleware.RollbarNotifierMiddleware",
 ]
 
 ROOT_URLCONF = 'task_manager.urls'
@@ -159,3 +160,32 @@ AUTH_USER_MODEL = 'users.User'
 
 LOGIN_URL = "/login/"
 LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
+
+ROLLBAR = {
+    'access_token': os.getenv('ACCESS_TOKEN_ROLLBAR'),
+    'environment': 'development' if DEBUG else 'production',
+    'code_version': '1.0',
+    'root': BASE_DIR,
+}
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'rollbar': {
+            'level': 'ERROR',
+            'class': 'rollbar.logger.RollbarHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['rollbar'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    },
+}
+
+# Инициализация Rollbar
+rollbar.init(**ROLLBAR)
