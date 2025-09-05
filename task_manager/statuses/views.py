@@ -56,7 +56,7 @@ class StatusDeleteView(
     CheckTaskMixin, SuccessMessageMixin, LoginRequiredMixin, DeleteView
 ):
     model = Status
-    context_object_name = "statuses"
+    context_object_name = "status"
     template_name = "statuses/delete.html"
     success_url = reverse("statuses")
     extra_context = {
