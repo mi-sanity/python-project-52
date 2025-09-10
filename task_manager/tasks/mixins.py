@@ -2,14 +2,16 @@ from django.contrib import messages
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.shortcuts import redirect
 from django.utils.translation import gettext_lazy as _
+from django.urls import reverse_lazy as reverse
 
 
 class AuthorRequireMixin(UserPassesTestMixin):
     author_require_message = _("Only author has permission")
+    redirect_url = reverse("tasks")
 
     def test_func(self):
         return self.get_object().author.id == self.request.user.id
 
-    def process_without_permission(self):
+    def handle_no_permission(self):
         messages.error(self.request, self.author_require_message)
-        return redirect(self.success_url)
+        return redirect(self.redirect_url)
