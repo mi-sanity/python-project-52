@@ -1,0 +1,15 @@
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.venv
+dist/
+.pytest_cache/
+.ruff_cache/
+*.cast
+.coverage
+coverage.xml
+.env
+db.sqlite3
