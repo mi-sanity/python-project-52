@@ -58,3 +58,7 @@ translate-makemessages:
 .PHONY: translate-compile
 translate-compile:
 	@$(MANAGE) compilemessages
+
+.PHONY: start
+start:
+	uv run manage.py runserver
