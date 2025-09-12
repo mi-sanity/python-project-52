@@ -4,9 +4,10 @@ from django.urls import reverse_lazy
 
 from task_manager.labels.models import Label
 from task_manager.tasks.models import Task
+from task_manager.test_db import TestDB
 
 
-class TestLabels(TestCase):
+class TestLabels(TestDB, TestCase):
     def test_labels_index_page_not_loggedIn(self):
         response = self.client.get(reverse_lazy("labels"))
         self.assertRedirects(response, expected_url="/login/?next=/labels/")

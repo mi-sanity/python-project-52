@@ -2,9 +2,10 @@ from django.test import TestCase
 from django.urls import reverse_lazy as reverse
 
 from task_manager.tasks.models import Task
+from task_manager.test_db import TestDB
 
 
-class TestTask(TestCase):
+class TestTask(TestDB, TestCase):
     def test_task_page_login(self):
         self.client.force_login(user=self.user)
         response = self.client.get(reverse("tasks"))

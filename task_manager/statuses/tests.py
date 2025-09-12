@@ -3,9 +3,10 @@ from django.test import TestCase
 from django.urls import reverse_lazy as reverse
 
 from task_manager.statuses.models import Status
+from task_manager.test_db import TestDB
 
 
-class TestStatus(TestCase):
+class TestStatus(TestDB, TestCase):
     def test_status_index_page(self):
         self.client.force_login(user=self.user)
         response = self.client.get(reverse("statuses"))

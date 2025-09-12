@@ -1,8 +1,10 @@
 from django.test import TestCase
 from django.urls import reverse_lazy
 
+from task_manager.test_db import TestDB
 
-class TestFiler(TestCase):
+
+class TestFiler(TestDB, TestCase):
     def setUp(self):
         self.client.force_login(user=self.user)
         self.response = self.client.get(reverse_lazy("tasks"))

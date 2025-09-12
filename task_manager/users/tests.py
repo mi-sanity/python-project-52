@@ -1,10 +1,11 @@
 from django.test import TestCase
 from django.urls import reverse_lazy as reverse
 
+from task_manager.test_db import TestDB
 from task_manager.users.models import User
 
 
-class TestUser(TestCase):
+class TestUser(TestDB, TestCase):
     def users_page_status_200(self):
         response = self.client.get(reverse("users"))
         self.assertEqual(response.status_code, 200)

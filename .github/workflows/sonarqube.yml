@@ -1,0 +1,53 @@
+name: SonarQube
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        DJANGO_SETTINGS_MODULE: task_manager.settings
+        ROLLBAR_ACCESS_TOKEN: ${{ secrets.ROLLBAR_ACCESS_TOKEN }}
+        ROLLBAR_ENV: development
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install uv
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Install dependencies
+        run: make ci-install
+      
+      - name: Run Ruff Check
+        run: make check
+
+      - name: Run migrations
+        run: make ci-migrate
+
+      - name: Run tests with coverage
+        run: make ci-test
+
+      - name: SonarQubeScan
+        uses: SonarSource/sonarqube-scan-action@v5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.projectKey=mi-sanity_python-project-52
+            -Dsonar.organization=mi-sanity
+            -Dsonar.python.coverage.reportPaths=coverage.xml
