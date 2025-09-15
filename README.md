@@ -7,6 +7,8 @@
 
 [![SonarQube](https://github.com/mi-sanity/python-project-52/actions/workflows/sonarqube.yml/badge.svg)](https://github.com/mi-sanity/python-project-52/actions/workflows/sonarqube.yml)
 
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=mi-sanity_python-project-52&metric=coverage)](https://sonarcloud.io/summary/new_code?id=mi-sanity_python-project-52)
+
 ### Domain link:
 https://task-manager-8d90.onrender.com
 
